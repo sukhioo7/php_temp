@@ -68,3 +68,21 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
+
+
+<!-- INSERT INTO example_table (event_name, event_timestamp) VALUES ('Event Name', CURRENT_TIMESTAMP); -->
+
+<!-- CREATE TABLE blogs (
+    blog_id INT not null UNIQUE AUTO_INCREMENT, 
+    title varchar(150) not null UNIQUE,
+    intro varchar(300) not null,
+    sub_heading1 varchar(150) not null UNIQUE,
+    content1 varchar(50000) not null,
+    sub_heading2 varchar(150) not null UNIQUE,
+    content2 varchar(50000) not null,
+    sub_heading3 varchar(150) not null UNIQUE,
+    content3 varchar(50000) not null,
+    sub_heading4 varchar(150) not null UNIQUE,
+    content4 varchar(50000) not null,
+    post_time datetime not null
+);  -->
