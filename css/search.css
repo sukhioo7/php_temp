@@ -1,0 +1,31 @@
+.search{
+    background-color: #173B45;
+    padding: 0.5em 5em;
+}
+form{
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0.3em;
+    font-size: 1.1em;
+}
+.search input{
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 1em;
+
+}
+.search button{
+    border: none;
+    background-color: #173B45;
+    color: white;
+    border-radius: 50px;
+    font-weight: bolder;
+    transition: all 0.2s ease-in-out;
+
+}
+.search button:hover{
+    background-color: #FF8343;
+}
