@@ -15,49 +15,49 @@
     <main>
       <h1 class="text-center m-2">ADD NEW BLOG</h1>
       <div class="blog-form m-5">
-        <form class="form-floating">
+        <form method="post" action="action.php" class="form-floating">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" class="form-control" name="title" id="floatingInput">
             <label for="floatingInput">Title</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" name="intro" id="floatingTextarea2" style="height: 100px"></textarea>
             <label for="floatingTextarea2">Introduction</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" class="form-control" name="sub_head1" id="floatingInput" >
             <label for="floatingInput">Sub Heading 1</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content1" id="floatingTextarea2" style="height: 200px"></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" class="form-control" name="sub_head2" id="floatingInput" >
             <label for="floatingInput">Sub Heading 2</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content2" id="floatingTextarea2" style="height: 200px"></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" class="form-control" name="sub_head3" id="floatingInput" >
             <label for="floatingInput">Sub Heading 3</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content3" id="floatingTextarea2" style="height: 200px"></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="text" class="form-control" name="sub_head4" id="floatingInput" >
             <label for="floatingInput">Sub Heading 4</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content4" id="floatingTextarea2" style="height: 200px"></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="mb-2">
-            <button type="submit" style="backgroud-color: "  class="btn btn-dark w-100 ">ADD BLOG</button>
+            <button type="submit" style="backgroud-color: " name="add_blog"  class="btn btn-dark w-100 ">ADD BLOG</button>
           </div>
         </form>
       </div>
