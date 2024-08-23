@@ -1,4 +1,5 @@
 <!doctype html>
+<?php include('connection.php'); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -16,22 +17,33 @@
     <main>
       <h1 class="text-center mt-5">OUR BLOGS</h1>
       <div class="letest-blog">
-          <a class="card">
-            <div class="card-img-holder">
-              <img src="img/blog1.jpg" alt="Blog image">
-            </div>
-            <h3 class="blog-title">Learn Microinteraction</h3>
-            <span class="blog-time">Monday Jan 20, 2020</span>
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis viverra turpis, non cursus ex accumsan at.
-            </p>
-            <div class="options">
-              <span>
-                Read Full Blog
-              </span>
-              <button class="btn">Blog</button>
-            </div>
-          </a>
+        <?php
+            $select_blog_query = "select * from blogs;";
+
+            $raw_data = mysqli_query($connection,$select_blog_query);
+
+            if ($raw_data->num_rows!=0){
+                while($blog = mysqli_fetch_assoc($raw_data)){  
+        ?>          
+                    <a class="card">
+                      <div class="card-img-holder">
+                        <img src="img/blog1.jpg" alt="Blog image">
+                      </div>
+                      <h3 class="blog-title"><?php echo $blog['title'] ?></h3>
+                      <span class="blog-time"><?php echo $blog['post_time'] ?></span>
+                      <p class="description"><?php echo $blog['intro'] ?></p>
+                      <div class="options">
+                        <span>
+                          Read Full Blog
+                        </span>
+                        <button class="btn">Blog</button>
+                      </div>
+                    </a>
+        <?php
+                }
+            }
+
+        ?>
         </div>
       </div>
     </main>
