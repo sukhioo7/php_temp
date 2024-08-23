@@ -4,7 +4,7 @@
         <a href="index.php">Home</a>
         <a href="about.php">About</a>
         <a href="contact.php">Contact Us</a>
-        <a href="">Blogs</a>
+        <a href="blogs.php">Blogs</a>
         <a href="blog_form.php">Add Blogs</a>
         <a href="patients.php">Services</a>
     </div>
