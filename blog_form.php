@@ -16,6 +16,26 @@
       <h1 class="text-center m-2">ADD NEW BLOG</h1>
       <div class="blog-form m-5">
         <form method="post" action="action.php" class="form-floating">
+        <?php
+            if (isset($_COOKIE['success'])){
+        ?>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><?php echo $_COOKIE['success'] ?> !</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        <?php
+            }
+        ?>
+        <?php
+            if (isset($_COOKIE['error'])){
+        ?>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><?php echo $_COOKIE['error'] ?> !</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        <?php
+            }
+        ?>
           <div class="form-floating mb-3">
             <input type="text" class="form-control" name="title" id="floatingInput">
             <label for="floatingInput">Title</label>

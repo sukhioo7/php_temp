@@ -13,18 +13,25 @@ if (isset($_POST['add_blog'])){
     $content3 = $_POST['content3'];
     $content4 = $_POST['content4'];
     
+    if (!empty($content1) and !empty($content2) and !empty($content3) and !empty($content4) and !empty($sub_head1)
+    or !empty($sub_head2) and !empty($sub_head3) and !empty($sub_head4) and !empty($intro) and !empty($title)){
 
-    $insert_blog = "INSERT INTO `blogs`( `title`, `intro`, `sub_heading1`, `content1`, `sub_heading2`, `content2`, `sub_heading3`, `content3`, `sub_heading4`, `content4`)
-        VALUES ('$title','$intro','$sub_head1','$content1','$sub_head2','$content2','$sub_head3','$content3','$sub_head4','$content4')";
+        $insert_blog = "INSERT INTO `blogs`( `title`, `intro`, `sub_heading1`, `content1`, `sub_heading2`, `content2`, `sub_heading3`, `content3`, `sub_heading4`, `content4`)
+            VALUES ('$title','$intro','$sub_head1','$content1','$sub_head2','$content2','$sub_head3','$content3','$sub_head4','$content4')";
 
-    $result = mysqli_query($connection,$insert_blog);
+        $result = mysqli_query($connection,$insert_blog);
 
-    if ($result){
-        echo 'Blog Uploaded';
-    }else{
-        echo 'ERROR';
+        if ($result){
+            setcookie("success",'Blog Uploaded Successfully',time()+10,'/');
+            header("Location: blog_form.php");
+        }else{
+            setcookie("error",'Something Bad Happend :( ',time()+10,'/');
+            header("Location: blog_form.php");
+        }
+    } else{
+        setcookie("error",'All Fields Are Required.',time()+10,'/');
+        header("Location: blog_form.php");
     }
-
 
 }
 
