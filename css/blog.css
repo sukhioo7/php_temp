@@ -4,22 +4,18 @@ body{
 .letest-blog{
     width: 100vw;
     padding: 2em;
-    /* height: 100vh; */
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 1rem;
+    /* background-color: aqua; */
   }
   .letest-blog a{
       text-decoration: none;
   }
   .card{
-    width: 20rem;
+    width: 22rem;
     height: auto;
     background: #fff;
     border-radius: 1.5rem;
     padding: 1.5rem;
+    margin: 1rem;
     overflow: hidden;
     position: relative;
     transition: box-shadow 0.2s ease-in-out;
