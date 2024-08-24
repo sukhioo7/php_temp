@@ -1,4 +1,5 @@
 <!doctype html>
+<?php include ('connection.php'); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,6 +9,24 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/view_blog.css">
     <link rel="stylesheet" href="css/footer.css">
+    <?php
+            if (isset($_GET['blog_id'])){
+                $nums = [1,2,3,4]; 
+                $random_number = $nums[array_rand($nums)];
+                $blog_id = $_GET['blog_id'];
+                $select_blog = "select * from blogs where blog_id=$blog_id";
+
+                $raw_data = mysqli_query($connection, $select_blog);
+                $blog = mysqli_fetch_assoc($raw_data);
+            }
+
+    ?>
+    <style>
+        .blog-header {
+            background-image: url("img/blog<?php echo $random_number; ?>.jpg");
+            background-size: cover;
+        }
+    </style>
   </head>
   <body>
     <nav>
@@ -15,13 +34,19 @@
     </nav>
     <main>
         <div class="blog-header">
-            <H1>How to lose Weight?</H1>
+            <H1><?php echo $blog['title'] ?></H1>
         </div>
-        <div class="blog-content">
+        <div class="blog-content mt-5 mb-5 container">
             <h3>Introduction</h3>
-            <p></p>
-            <h3></h3>
-
+            <p><?php echo $blog['intro'] ?></p>
+            <h3><?php echo $blog['sub_heading1'] ?></h3>
+            <p><?php echo $blog['content1'] ?></p>
+            <h3><?php echo $blog['sub_heading2'] ?></h3>
+            <p><?php echo $blog['content2'] ?></p>
+            <h3><?php echo $blog['sub_heading3'] ?></h3>
+            <p><?php echo $blog['content3'] ?></p>
+            <h3><?php echo $blog['sub_heading4'] ?></h3>
+            <p><?php echo $blog['content4'] ?></p>
         </div>
     </main>
     <?php include('footer.php'); ?>
