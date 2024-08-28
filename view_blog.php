@@ -36,6 +36,10 @@
         <div class="blog-header">
             <H1><?php echo $blog['title'] ?></H1>
         </div>
+        <div class="container edit-btn">
+          <a class="btn btn-success" href="">Edit</a>
+          <a class="btn btn-danger" href="">Delete</a>
+        </div>
         <div class="blog-content mt-5 mb-5 container">
             <h3>Introduction</h3>
             <p><?php echo $blog['intro'] ?></p>

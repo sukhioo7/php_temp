@@ -70,7 +70,7 @@
 
         ?>
         </div>
-        <a href="">Read More...</a>
+        <a href="blogs.php">Read More...</a>
       </div>
       <div class="box3">
         
