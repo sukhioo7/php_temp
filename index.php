@@ -1,4 +1,5 @@
 <!doctype html>
+<?php include('connection.php'); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -38,54 +39,36 @@
       <div class="box2">
         <h3>LATEST BLOGS</h3>
         <div class="letest-blog">
-          <a class="card">
-            <div class="card-img-holder">
-              <img src="img/blog1.jpg" alt="Blog image">
-            </div>
-            <h3 class="blog-title">Learn Microinteraction</h3>
-            <span class="blog-time">Monday Jan 20, 2020</span>
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis viverra turpis, non cursus ex accumsan at.
-            </p>
-            <div class="options">
-              <span>
-                Read Full Blog
-              </span>
-              <button class="btn">Blog</button>
-            </div>
-          </a>
-          <a class="card">
-            <div class="card-img-holder">
-              <img src="img/blog2.jpg" alt="Blog image">
-            </div>
-            <h3 class="blog-title">Learn Microinteraction</h3>
-            <span class="blog-time">Monday Jan 20, 2020</span>
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis viverra turpis, non cursus ex accumsan at.
-            </p>
-            <div class="options">
-              <span>
-                Read Full Blog
-              </span>
-              <button class="btn">Blog</button>
-            </div>
-          </a>
-          <a class="card">
-            <div class="card-img-holder">
-              <img src="img/blog3.jpg" alt="Blog image">
-            </div>
-            <h3 class="blog-title">Learn Microinteraction</h3>
-            <span class="blog-time">Monday Jan 20, 2020</span>
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis viverra turpis, non cursus ex accumsan at.
-            </p>
-            <div class="options">
-              <span>
-                Read Full Blog
-              </span>
-              <button class="btn">Blog</button>
-            </div>
-          </a>
+        <?php
+            $select_blog_query = "select * from blogs order by post_time desc limit 3;";
+
+            $raw_data = mysqli_query($connection,$select_blog_query);
+
+            if ($raw_data->num_rows!=0){
+                while($blog = mysqli_fetch_assoc($raw_data)){ 
+                    $nums = [1,2,3,4]; 
+                    $random_number = $nums[array_rand($nums)];
+                    $timestamp = strtotime($blog['post_time']);
+        ?>          
+                    <a class="card" href="view_blog.php?blog_id=<?php echo $blog['blog_id'] ?>">
+                      <div class="card-img-holder">
+                        <img src="img/blog<?php echo $random_number; ?>.jpg" alt="Blog image">
+                      </div>
+                      <h3 class="blog-title"><?php echo $blog['title'] ?></h3>
+                      <span class="blog-time"><?php echo date("l, M d Y",$timestamp) ?></span>
+                      <p class="description"><?php echo $blog['intro'] ?></p>
+                      <div class="options">
+                        <span>
+                          Read Full Blog
+                        </span>
+                        <button class="btn">Blog</button>
+                      </div>
+                    </a>
+        <?php
+                }
+            }
+
+        ?>
         </div>
         <a href="">Read More...</a>
       </div>
