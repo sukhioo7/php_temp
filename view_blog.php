@@ -47,7 +47,7 @@
           <?php
               }
           ?>
-          <a class="btn btn-success" href="">Edit</a>
+          <a class="btn btn-success" href="blog_form.php?blog_id=<?php echo $blog['blog_id']; ?>">Edit</a>
           <a class="btn btn-danger" href="action.php?blog_id=<?php echo $blog['blog_id']; ?>">Delete</a>
         </div>
         <div class="blog-content mt-5 mb-5 container">

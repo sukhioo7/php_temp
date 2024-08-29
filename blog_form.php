@@ -1,4 +1,5 @@
 <!doctype html>
+<?php include('connection.php'); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,8 +13,18 @@
     <nav>
       <?php include('navbar.php'); ?>
     </nav>
+    <?php
+            if (isset($_GET['blog_id'])){
+
+                $blog_id = $_GET['blog_id'];
+                $select_blog = "select * from blogs where blog_id=$blog_id";
+
+                $raw_data = mysqli_query($connection, $select_blog);
+                $blog = mysqli_fetch_assoc($raw_data);
+            }
+    ?>
     <main>
-      <h1 class="text-center m-2">ADD NEW BLOG</h1>
+      <h1 class="text-center m-2"><?php echo (isset($_GET['blog_id'])) ? 'UPDATE BLOG' : 'ADD NEW BLOG';  ?></h1>
       <div class="blog-form m-5">
         <form method="post" action="action.php" class="form-floating">
         <?php
@@ -37,47 +48,47 @@
             }
         ?>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="title" id="floatingInput">
+            <input type="text" class="form-control" name="title" value="<?php echo (isset($_GET['blog_id'])) ? $blog['title'] : ''; ?>" id="floatingInput">
             <label for="floatingInput">Title</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="intro" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" name="intro" id="floatingTextarea2" style="height: 100px"><?php echo (isset($_GET['blog_id'])) ? $blog['intro'] : ''; ?></textarea>
             <label for="floatingTextarea2">Introduction</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head1" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head1" value="<?php echo (isset($_GET['blog_id'])) ? $blog['sub_heading1'] : ''; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 1</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content1" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content1" id="floatingTextarea2" style="height: 200px"><?php echo (isset($_GET['blog_id'])) ? $blog['content1'] : ''; ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head2" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head2" value="<?php echo (isset($_GET['blog_id'])) ? $blog['sub_heading2'] : ''; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 2</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content2" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content2" id="floatingTextarea2" style="height: 200px"><?php echo (isset($_GET['blog_id'])) ? $blog['content2'] : ''; ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head3" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head3" value="<?php echo (isset($_GET['blog_id'])) ? $blog['sub_heading3'] : ''; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 3</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content3" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content3" id="floatingTextarea2" style="height: 200px"><?php echo (isset($_GET['blog_id'])) ? $blog['content3'] : ''; ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head4" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head4" value="<?php echo (isset($_GET['blog_id'])) ? $blog['sub_heading4'] : ''; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 4</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content4" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content4" id="floatingTextarea2" style="height: 200px"><?php echo (isset($_GET['blog_id'])) ? $blog['content4'] : ''; ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="mb-2">
-            <button type="submit" style="backgroud-color: " name="add_blog"  class="btn btn-dark w-100 ">ADD BLOG</button>
+            <button type="submit" style="backgroud-color: " name="add_blog"  class="btn btn-dark w-100 "><?php echo (isset($_GET['blog_id'])) ? 'UPDATE BLOG' : 'ADD  BLOG';  ?></button>
           </div>
         </form>
       </div>
