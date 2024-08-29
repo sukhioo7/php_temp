@@ -19,6 +19,16 @@
     </nav>
     <main class="d-flex justify-content-center align-items-center flex-column">
       <h1 class="text-center mt-5">OUR BLOGS</h1>
+      <?php
+            if (isset($_COOKIE['success'])){
+        ?>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><?php echo $_COOKIE['success'] ?> !</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        <?php
+            }
+        ?>
       <div class=" row masonry letest-blog ">
         <?php
             $select_blog_query = "select * from blogs;";

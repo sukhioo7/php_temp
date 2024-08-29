@@ -37,8 +37,18 @@
             <H1><?php echo $blog['title'] ?></H1>
         </div>
         <div class="container edit-btn">
+          <?php
+              if (isset($_COOKIE['error'])){
+          ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong><?php echo $_COOKIE['error'] ?> !</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+          <?php
+              }
+          ?>
           <a class="btn btn-success" href="">Edit</a>
-          <a class="btn btn-danger" href="">Delete</a>
+          <a class="btn btn-danger" href="action.php?blog_id=<?php echo $blog['blog_id']; ?>">Delete</a>
         </div>
         <div class="blog-content mt-5 mb-5 container">
             <h3>Introduction</h3>

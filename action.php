@@ -22,17 +22,35 @@ if (isset($_POST['add_blog'])){
         $result = mysqli_query($connection,$insert_blog);
 
         if ($result){
-            setcookie("success",'Blog Uploaded Successfully',time()+10,'/');
+            setcookie("success",'Blog Uploaded Successfully',time()+3,'/');
             header("Location: blog_form.php");
         }else{
-            setcookie("error",'Something Bad Happend :( ',time()+10,'/');
+            setcookie("error",'Something Bad Happend :( ',time()+3,'/');
             header("Location: blog_form.php");
         }
     } else{
-        setcookie("error",'All Fields Are Required.',time()+10,'/');
+        setcookie("error",'All Fields Are Required.',time()+3,'/');
         header("Location: blog_form.php");
     }
 
 }
 
+?>
+
+<?php 
+    if (isset($_GET['blog_id'])){
+        $id = $_GET['blog_id'];
+
+        $delete_query = "delete from blogs where blog_id=$id";
+
+        $result = mysqli_query($connection,$delete_query);
+
+        if ($result){
+            setcookie("success","Blog No. $id Deleted Successfuly.",time()+3,'/');
+            header('location:blogs.php');
+        }else{
+            setcookie("error",'Something Bad Happend.',time()+3,'/');
+            header("Location: view_blog.php");
+        }
+    }
 ?>
