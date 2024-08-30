@@ -13,16 +13,6 @@
     <nav>
       <?php include('navbar.php'); ?>
     </nav>
-    <?php
-            if (isset($_GET['blog_id'])){
-
-                $blog_id = $_GET['blog_id'];
-                $select_blog = "select * from blogs where blog_id=$blog_id";
-
-                $raw_data = mysqli_query($connection, $select_blog);
-                $blog = mysqli_fetch_assoc($raw_data);
-            }
-    ?>
     <main>
       <h1 class="text-center m-2">ADD BLOG</h1>
       <div class="blog-form m-5">

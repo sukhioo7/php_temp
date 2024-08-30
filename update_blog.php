@@ -49,46 +49,46 @@
         ?>
 
 
-          <input type='text' name="id" value="">
-          
+          <input type='hidden' name="id" value="<?php echo $blog['blog_id']; ?>">
+            
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="title" value="" id="floatingInput">
+            <input type="text" class="form-control" name="title" value="<?php echo $blog['title']; ?>" id="floatingInput">
             <label for="floatingInput">Title</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="intro" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea class="form-control" name="intro" id="floatingTextarea2" style="height: 100px"><?php echo $blog['intro'] ?></textarea>
             <label for="floatingTextarea2">Introduction</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head1" value=" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head1" value="<?php echo $blog['sub_heading1']; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 1</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content1" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content1" id="floatingTextarea2" style="height: 200px"><?php echo $blog['content1'] ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head2" value="" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head2" value="<?php echo $blog['sub_heading2']; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 2</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content2" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content2" id="floatingTextarea2" style="height: 200px"><?php echo $blog['content2'] ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head3" value="" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head3" value="<?php echo $blog['sub_heading3']; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 3</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content3" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content3" id="floatingTextarea2" style="height: 200px"><?php echo $blog['content3'] ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head4" value="" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head4" value="<?php echo $blog['sub_heading4']; ?>" id="floatingInput" >
             <label for="floatingInput">Sub Heading 4</label>
           </div>
           <div class="form-floating mb-3">
-            <textarea class="form-control" name="content4" id="floatingTextarea2" style="height: 200px"></textarea>
+            <textarea class="form-control" name="content4" id="floatingTextarea2" style="height: 200px"><?php echo $blog['content4'] ?></textarea>
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="mb-2">
