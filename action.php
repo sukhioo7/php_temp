@@ -55,4 +55,3 @@ if (isset($_POST['add_blog'])){
     }
 ?>
 
-<?php

@@ -24,7 +24,7 @@
             }
     ?>
     <main>
-      <h1 class="text-center m-2">ADD BLOG</h1>
+      <h1 class="text-center m-2">UPDATE BLOG</h1>
       <div class="blog-form m-5">
         <form method="post" action="action.php" class="form-floating">
         <?php
@@ -47,9 +47,12 @@
         <?php
             }
         ?>
+
+
+          <input type='text' name="id" value="">
           
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="title"  id="floatingInput">
+            <input type="text" class="form-control" name="title" value="" id="floatingInput">
             <label for="floatingInput">Title</label>
           </div>
           <div class="form-floating mb-3">
@@ -57,7 +60,7 @@
             <label for="floatingTextarea2">Introduction</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head1"  id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head1" value=" id="floatingInput" >
             <label for="floatingInput">Sub Heading 1</label>
           </div>
           <div class="form-floating mb-3">
@@ -65,7 +68,7 @@
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head2" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head2" value="" id="floatingInput" >
             <label for="floatingInput">Sub Heading 2</label>
           </div>
           <div class="form-floating mb-3">
@@ -73,7 +76,7 @@
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head3" id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head3" value="" id="floatingInput" >
             <label for="floatingInput">Sub Heading 3</label>
           </div>
           <div class="form-floating mb-3">
@@ -81,7 +84,7 @@
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="sub_head4"  id="floatingInput" >
+            <input type="text" class="form-control" name="sub_head4" value="" id="floatingInput" >
             <label for="floatingInput">Sub Heading 4</label>
           </div>
           <div class="form-floating mb-3">
@@ -89,7 +92,7 @@
             <label for="floatingTextarea2">Content</label>
           </div>
           <div class="mb-2">
-            <button type="submit" style="backgroud-color: " name="add_blog"  class="btn btn-dark w-100 ">ADD BLOG</button>
+            <button type="submit" style="backgroud-color: " name="update_blog"  class="btn btn-dark w-100 ">UPDATE BLOG</button>
           </div>
         </form>
       </div>
