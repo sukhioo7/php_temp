@@ -94,3 +94,51 @@ if (isset($_POST['update_blog'])){
 }
 
 ?>
+
+<?php
+if (isset($_POST['signup'])){
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $country = $_POST['country'];
+    $city = $_POST['city'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm-password'];
+
+    if (!empty($first_name) and !empty($last_name) and !empty($country) and 
+        !empty($city) and !empty($email) and !empty($password) and !empty($confirm_password)){
+            
+            $email_query = "select * from admins where email='$email'";
+            $check_email = mysqli_query($connection,$email_query);
+
+            if ($check_email->num_rows==0){
+                if ($password==$confirm_password){
+
+                    $encrpyted_pass = password_hash($password,PASSWORD_ARGON2I);
+
+                    $insert_admin = "insert into admins (first_name,last_name,country,city,email,password) 
+                                    values ('$first_name','$last_name','$country','$city','$email','$encrpyted_pass')";
+                    $result = mysqli_query($connection,$insert_admin);
+
+                    if ($result){
+                        setcookie("success",'Account Created Successfuly.',time()+3,'/');
+                        header("Location: signup.php");
+                    }else{
+                        setcookie("error",'Something Went Wrong.',time()+3,'/');
+                        header("Location: signup.php");
+                    }
+                }else{
+                    setcookie("error",'Password and Confirm Password Do Not Matched.',time()+3,'/');
+                    header("Location: signup.php");
+                }
+            }else{
+                setcookie("error",'This Email Is Already Exists.',time()+3,'/');
+                header("Location: signup.php");
+            }
+    }else{
+        setcookie("error",'All Fields Are Required.',time()+3,'/');
+        header("Location: signup.php");
+    }
+}
+
+?>

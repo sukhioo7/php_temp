@@ -15,53 +15,73 @@
     <main>
         <h1 class="text-center text-dark mt-5 m-3">SIGN UP</h1>
         <div class="container w-50">
-            <form class="rounded p-4 mb-5 border w-80" action="login.php" method="post">
+            <form class="rounded p-4 mb-5 border w-80" action="action.php" method="post">
+            <?php
+                if (isset($_COOKIE['success'])){
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong><?php echo $_COOKIE['success'] ?> !</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+                }
+            ?>
+            <?php
+                if (isset($_COOKIE['error'])){
+            ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong><?php echo $_COOKIE['error'] ?> !</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php
+                }
+            ?>
                 <div class="form-floating mb-3">
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInputGrid" placeholder="First Name">
+                                <input type="text" name="first_name" class="form-control" id="floatingInputGrid" placeholder="First Name">
                                 <label for="floatingInputGrid">First Name</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInputGrid" placeholder="Last Name">
+                                <input type="text" name="last_name" class="form-control" id="floatingInputGrid" placeholder="Last Name">
                                 <label for="floatingInputGrid">Last Name</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInputGrid" placeholder="First Name">
+                                <input type="text" name="country" class="form-control" id="floatingInputGrid" placeholder="First Name">
                                 <label for="floatingInputGrid">Country</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingInputGrid" placeholder="Last Name">
+                                <input type="text" name="city" class="form-control" id="floatingInputGrid" placeholder="Last Name">
                                 <label for="floatingInputGrid">City</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" name="confirm-password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Confirm Password</label>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-dark w-100">Sign up</button>
+                    <button type="submit" name="signup" class="btn btn-dark w-100">Sign up</button>
                 </div>
             </form>
         </div>
