@@ -5,12 +5,20 @@
         <a href="about.php">About</a>
         <a href="contact.php">Contact Us</a>
         <a href="blogs.php">Blogs</a>
-        <a href="blog_form.php">Add Blogs</a>
+        <?php
+            session_start();
+            if (isset($_SESSION['admin_id'])){
+        ?>       
+            <a href="blog_form.php">Add Blogs</a>
+        <?php
+            }
+        ?>
+
         <a href="patients.php">Services</a>
     </div>
     <div class="log-sign">
         <?php
-            session_start();
+
             if (isset($_SESSION['admin_id'])){
         ?>       
             <a id="logout" href="logout.php">Logout</a>

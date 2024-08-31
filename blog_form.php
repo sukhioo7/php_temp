@@ -1,5 +1,8 @@
 <!doctype html>
-<?php include('connection.php'); ?>
+<?php include('connection.php'); 
+
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -18,6 +21,10 @@
       <div class="blog-form m-5">
         <form method="post" action="action.php" class="form-floating">
         <?php
+
+            if (!isset($_SESSION['admin_id'])){
+              header('location:login.php');
+            }
             if (isset($_COOKIE['success'])){
         ?>
               <div class="alert alert-success alert-dismissible fade show" role="alert">

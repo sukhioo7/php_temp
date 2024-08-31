@@ -1,7 +1,13 @@
-<?php include('connection.php'); ?>
+<?php 
+    include('connection.php'); 
+    session_start();
+?>
 <?php
 
 if (isset($_POST['add_blog'])){
+    if (!isset($_SESSION['admin_id'])){
+        header('location:login.php');
+    }
     $title = $_POST['title'];
     $intro = $_POST['intro'];
     $sub_head1 = $_POST['sub_head1'];
@@ -39,6 +45,9 @@ if (isset($_POST['add_blog'])){
 
 <?php 
     if (isset($_GET['blog_id'])){
+        if (!isset($_SESSION['admin_id'])){
+            header('location:login.php');
+        }
         $id = $_GET['blog_id'];
 
         $delete_query = "delete from blogs where blog_id=$id";
@@ -58,6 +67,9 @@ if (isset($_POST['add_blog'])){
 <?php
 
 if (isset($_POST['update_blog'])){
+    if (!isset($_SESSION['admin_id'])){
+        header('location:login.php');
+    }
     $blog_id = $_POST['id'];
     $title = $_POST['title'];
     $intro = $_POST['intro'];
@@ -160,7 +172,7 @@ if (isset($_POST['login'])){
             $pass_check = password_verify($password,$admin['password']);
             
             if ($pass_check){
-                session_start();
+
                 $_SESSION['admin_id'] = $admin['admin_id'];
                 header("Location: index.php");
                 // echo "Login";

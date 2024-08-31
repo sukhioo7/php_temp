@@ -47,8 +47,14 @@
           <?php
               }
           ?>
-          <a class="btn btn-success" href="update_blog.php?blog_id=<?php echo $blog['blog_id']; ?>">Edit</a>
-          <a class="btn btn-danger" href="action.php?blog_id=<?php echo $blog['blog_id']; ?>">Delete</a>
+                  <?php
+                      if (isset($_SESSION['admin_id'])){
+                  ?>       
+                                <a class="btn btn-success" href="update_blog.php?blog_id=<?php echo $blog['blog_id']; ?>">Edit</a>
+                                <a class="btn btn-danger" href="action.php?blog_id=<?php echo $blog['blog_id']; ?>">Delete</a>
+                  <?php
+                      }
+                  ?>
         </div>
         <div class="blog-content mt-5 mb-5 container">
             <h3>Introduction</h3>

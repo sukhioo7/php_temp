@@ -1,5 +1,8 @@
 <!doctype html>
-<?php include('connection.php'); ?>
+<?php include('connection.php'); 
+
+
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -14,6 +17,10 @@
       <?php include('navbar.php'); ?>
     </nav>
     <?php
+              if (!isset($_SESSION['admin_id'])){
+                header('location:login.php');
+            }
+  
             if (isset($_GET['blog_id'])){
 
                 $blog_id = $_GET['blog_id'];
