@@ -160,8 +160,10 @@ if (isset($_POST['login'])){
             $pass_check = password_verify($password,$admin['password']);
             
             if ($pass_check){
-                // $_SESSION['admin_id'] = $admin['admin_id'];
-                echo "Login";
+                session_start();
+                $_SESSION['admin_id'] = $admin['admin_id'];
+                header("Location: index.php");
+                // echo "Login";
             }else{
                 setcookie("error",'Your Email or Password is incorrect.',time()+3,'/');
                 header("Location: login.php");

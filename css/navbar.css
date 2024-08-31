@@ -60,3 +60,8 @@
 .log-sign a:hover{
     background-color: #FF8343;
 }
+#logout:hover{
+    background-color: white;
+    outline:1px solid black;
+    color: black;
+}

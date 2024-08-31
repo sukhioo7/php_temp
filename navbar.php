@@ -9,7 +9,18 @@
         <a href="patients.php">Services</a>
     </div>
     <div class="log-sign">
-        <a href="login.php">Login</a>
-        <a href="signup.php">Signup</a>
+        <?php
+            session_start();
+            if (isset($_SESSION['admin_id'])){
+        ?>       
+            <a id="logout" href="logout.php">Logout</a>
+        <?php
+            }else{
+        ?>
+            <a href="login.php">Login</a>
+            <a href="signup.php">Signup</a>
+        <?php
+            }
+        ?>
     </div>
 </div>
