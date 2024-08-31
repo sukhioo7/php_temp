@@ -15,17 +15,27 @@
     <main>
         <h1 class="text-center text-dark mt-5 m-3">LOGIN</h1>
         <div class="container w-50">
-            <form class="rounded p-4 mb-5 border w-80" action="login.php" method="post">
+            <form class="rounded p-4 mb-5 border w-80" action="action.php" method="post">
+                <?php
+                    if (isset($_COOKIE['error'])){
+                ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong><?php echo $_COOKIE['error'] ?> !</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php
+                    }
+                ?>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-dark w-100">Login</button>
+                    <button type="submit" name="login" class="btn btn-dark w-100">Login</button>
                 </div>
             </form>
         </div>

@@ -142,3 +142,38 @@ if (isset($_POST['signup'])){
 }
 
 ?>
+
+<?php
+if (isset($_POST['login'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (!empty($email) and !empty($password)){
+
+        $email_query = "select * from admins where email='$email'";
+        $raw_admin = mysqli_query($connection,$email_query);
+
+        if ($raw_admin->num_rows==1){
+            
+            $admin = mysqli_fetch_assoc($raw_admin);
+
+            $pass_check = password_verify($password,$admin['password']);
+            
+            if ($pass_check){
+                // $_SESSION['admin_id'] = $admin['admin_id'];
+                echo "Login";
+            }else{
+                setcookie("error",'Your Email or Password is incorrect.',time()+3,'/');
+                header("Location: login.php");
+            }
+        }else{
+            setcookie("error",'Your Email or Password is incorrect.',time()+3,'/');
+            header("Location: login.php");
+        }
+    }else{
+        setcookie("error",'All Fields Are Required.',time()+3,'/');
+        header("Location: login.php");
+    }
+}
+
+?>
